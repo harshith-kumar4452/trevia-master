@@ -31,7 +31,7 @@ export default function Home() {
   return (
     <main>
       <Hero />
-      
+
       {/* Featured Destinations */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -103,7 +103,7 @@ export default function Home() {
                   Ready to Start Your Indian Adventure?
                 </h2>
                 <p className="text-gray-200 mb-8">
-                  Let Trevia's AI-powered platform create your perfect itinerary with local insights
+                  Let Trevia&apos;s AI-powered platform create your perfect itinerary with local insights
                   and personalized recommendations.
                 </p>
                 <Link

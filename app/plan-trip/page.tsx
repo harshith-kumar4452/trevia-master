@@ -90,7 +90,7 @@ const PlanTripPage = () => {
             muted
             playsInline
             className="w-full h-full object-cover"
-            style={{ 
+            style={{
               filter: 'brightness(0.85) saturate(1.2) contrast(1.1)',
               transform: 'scale(1.01)' // Slight zoom to avoid white edges during transitions
             }}
@@ -116,7 +116,7 @@ const PlanTripPage = () => {
                 width={300}
                 height={150}
                 className="mix-blend-screen drop-shadow-lg"
-                style={{ 
+                style={{
                   filter: 'brightness(1.3) contrast(1.3) saturate(1.1)',
                   transform: 'scale(1.02)'
                 }}
@@ -129,9 +129,9 @@ const PlanTripPage = () => {
           /* Mood Selection Section - now horizontal at bottom */
           <div className="mt-auto pb-12">
             <div className="text-center mb-8">
-              <h2 className="text-3xl font-semibold text-white mb-4 drop-shadow-md">What's your travel mood?</h2>
+              <h2 className="text-3xl font-semibold text-white mb-4 drop-shadow-md">What&apos;s your travel mood?</h2>
               <p className="text-lg text-gray-200 max-w-2xl mx-auto">
-                Select a mood that best describes the experience you're looking for
+                Select a mood that best describes the experience you&apos;re looking for
               </p>
             </div>
 
@@ -143,7 +143,7 @@ const PlanTripPage = () => {
                   className="group relative bg-white/20 backdrop-blur-lg hover:bg-white/30 rounded-xl overflow-hidden transition-all duration-300 h-48 md:h-56 border border-white/30 hover:shadow-lg hover:shadow-[#7FD3F7]/20 transform hover:-translate-y-1"
                 >
                   <div className={`absolute inset-0 bg-gradient-to-br ${mood.color} opacity-50 group-hover:opacity-70 transition-opacity duration-300`}></div>
-                  
+
                   <div className="relative z-10 h-full flex flex-col items-center justify-center p-6 text-white">
                     <div className="mb-4 p-3 rounded-full bg-white/30 group-hover:bg-white/40 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg">
                       <Image src={mood.icon} alt={mood.title} width={40} height={40} />
@@ -159,8 +159,8 @@ const PlanTripPage = () => {
           /* Planning Tools Section */
           <div className="space-y-12 mt-auto pb-12">
             <div className="flex items-center justify-between mb-8">
-              <button 
-                onClick={handleBackToMoods} 
+              <button
+                onClick={handleBackToMoods}
                 className="flex items-center text-white hover:text-[#7FD3F7] transition-colors"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -184,13 +184,13 @@ const PlanTripPage = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               {plannerFeatures.map((feature) => (
-                <Link 
+                <Link
                   key={feature.id}
                   href={`/plan-trip/${feature.id}?mood=${selectedMood}`}
                   className="group relative bg-white/20 backdrop-blur-lg hover:bg-white/30 rounded-xl overflow-hidden transition-all duration-300 border border-white/30 flex flex-col items-center p-6 h-48 md:h-56 hover:shadow-lg hover:shadow-[#7FD3F7]/20 transform hover:-translate-y-1"
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-[#0A1B3D]/50 to-[#7FD3F7]/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  
+
                   <div className="mb-4 p-4 rounded-full bg-white/30 group-hover:bg-white/40 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg relative z-10">
                     <Image src={feature.icon} alt={feature.title} width={32} height={32} />
                   </div>

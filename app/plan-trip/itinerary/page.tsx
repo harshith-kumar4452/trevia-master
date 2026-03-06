@@ -26,7 +26,7 @@ const ItineraryPage = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const mood = searchParams.get('mood');
-  
+
   const [formData, setFormData] = useState({
     destination: '',
     startDate: '',
@@ -34,7 +34,7 @@ const ItineraryPage = () => {
     travelers: '2',
     interests: [] as string[],
   });
-  
+
   const [loading, setLoading] = useState(false);
   const [itinerary, setItinerary] = useState<ItineraryDay[] | null>(null);
 
@@ -70,7 +70,7 @@ const ItineraryPage = () => {
   const generateItinerary = (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    
+
     // In a real app, this would be an API call to an AI service
     // For now, we'll simulate with a timeout and mock data
     setTimeout(() => {
@@ -181,7 +181,7 @@ const ItineraryPage = () => {
           ]
         }
       ];
-      
+
       setItinerary(mockItinerary);
       setLoading(false);
     }, 3000);
@@ -216,7 +216,7 @@ const ItineraryPage = () => {
               <h2 className="text-2xl font-bold text-[#0A1B3D] mb-6">
                 Help Us Plan Your Perfect Trip
               </h2>
-              
+
               <form onSubmit={generateItinerary} className="space-y-6">
                 <div>
                   <label className="block text-gray-700 font-medium mb-2">
@@ -224,7 +224,7 @@ const ItineraryPage = () => {
                   </label>
                   <select
                     value={formData.destination}
-                    onChange={(e) => setFormData({...formData, destination: e.target.value})}
+                    onChange={(e) => setFormData({ ...formData, destination: e.target.value })}
                     className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#7FD3F7] focus:border-transparent"
                     required
                   >
@@ -236,7 +236,7 @@ const ItineraryPage = () => {
                     ))}
                   </select>
                 </div>
-                
+
                 <div>
                   <label className="block text-gray-700 font-medium mb-2">
                     When do you want to start?
@@ -244,19 +244,19 @@ const ItineraryPage = () => {
                   <input
                     type="date"
                     value={formData.startDate}
-                    onChange={(e) => setFormData({...formData, startDate: e.target.value})}
+                    onChange={(e) => setFormData({ ...formData, startDate: e.target.value })}
                     className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#7FD3F7] focus:border-transparent"
                     required
                   />
                 </div>
-                
+
                 <div>
                   <label className="block text-gray-700 font-medium mb-2">
                     Trip duration
                   </label>
                   <select
                     value={formData.duration}
-                    onChange={(e) => setFormData({...formData, duration: e.target.value})}
+                    onChange={(e) => setFormData({ ...formData, duration: e.target.value })}
                     className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#7FD3F7] focus:border-transparent"
                   >
                     <option value="3-5">3-5 days</option>
@@ -265,14 +265,14 @@ const ItineraryPage = () => {
                     <option value="13+">13+ days</option>
                   </select>
                 </div>
-                
+
                 <div>
                   <label className="block text-gray-700 font-medium mb-2">
                     Number of travelers
                   </label>
                   <select
                     value={formData.travelers}
-                    onChange={(e) => setFormData({...formData, travelers: e.target.value})}
+                    onChange={(e) => setFormData({ ...formData, travelers: e.target.value })}
                     className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#7FD3F7] focus:border-transparent"
                   >
                     <option value="1">1 person</option>
@@ -281,7 +281,7 @@ const ItineraryPage = () => {
                     <option value="5+">5+ people</option>
                   </select>
                 </div>
-                
+
                 <div>
                   <label className="block text-gray-700 font-medium mb-2">
                     Select your interests
@@ -303,17 +303,16 @@ const ItineraryPage = () => {
                     ))}
                   </div>
                 </div>
-                
+
                 <button
                   type="submit"
                   disabled={loading}
-                  className={`w-full py-3 px-6 rounded-lg text-white font-medium ${
-                    loading ? 'bg-gray-400' : 'bg-[#0A1B3D] hover:bg-[#0A1B3D]/90'
-                  } transition-colors`}
+                  className={`w-full py-3 px-6 rounded-lg text-white font-medium ${loading ? 'bg-gray-400' : 'bg-[#0A1B3D] hover:bg-[#0A1B3D]/90'
+                    } transition-colors`}
                 >
                   {loading ? 'Generating Itinerary...' : 'Generate My AI Itinerary'}
                 </button>
-                
+
                 {loading && (
                   <div className="text-center mt-4">
                     <div className="inline-block animate-spin rounded-full h-8 w-8 border-4 border-[#7FD3F7] border-t-transparent"></div>
@@ -324,13 +323,13 @@ const ItineraryPage = () => {
                 )}
               </form>
             </div>
-            
+
             <div className="hidden lg:block">
               <div className="bg-white p-8 rounded-xl shadow-lg h-full">
                 <h2 className="text-2xl font-bold text-[#0A1B3D] mb-6">
                   How Our AI Creates Your Itinerary
                 </h2>
-                
+
                 <div className="space-y-6">
                   <div className="flex items-start">
                     <div className="flex-shrink-0 bg-[#7FD3F7]/20 p-3 rounded-full mr-4">
@@ -347,7 +346,7 @@ const ItineraryPage = () => {
                       </p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start">
                     <div className="flex-shrink-0 bg-[#7FD3F7]/20 p-3 rounded-full mr-4">
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-[#0A1B3D]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -359,11 +358,11 @@ const ItineraryPage = () => {
                         Balanced Planning
                       </h3>
                       <p className="text-gray-600 mt-1">
-                        We create schedules that balance activities, relaxation, and cultural experiences, ensuring you don't miss the best each destination has to offer.
+                        We create schedules that balance activities, relaxation, and cultural experiences, ensuring you don&apos;t miss the best each destination has to offer.
                       </p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start">
                     <div className="flex-shrink-0 bg-[#7FD3F7]/20 p-3 rounded-full mr-4">
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-[#0A1B3D]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -379,7 +378,7 @@ const ItineraryPage = () => {
                       </p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start">
                     <div className="flex-shrink-0 bg-[#7FD3F7]/20 p-3 rounded-full mr-4">
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-[#0A1B3D]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -426,7 +425,7 @@ const ItineraryPage = () => {
                   </button>
                 </div>
               </div>
-              
+
               <div className="border-t border-gray-200 pt-6">
                 <div className="flex overflow-x-auto space-x-4 pb-4">
                   {itinerary.map((day) => (
@@ -440,14 +439,14 @@ const ItineraryPage = () => {
                 </div>
               </div>
             </div>
-            
+
             {itinerary.map((day) => (
               <div key={day.day} className="bg-white rounded-xl shadow-lg overflow-hidden">
                 <div className="bg-[#0A1B3D] p-6 text-white">
                   <h3 className="text-xl font-bold">Day {day.day}: {day.title}</h3>
                   <p className="text-gray-300 mt-1">{day.date}</p>
                 </div>
-                
+
                 <div className="p-6">
                   <div className="space-y-6">
                     {day.activities.map((activity, index) => (
@@ -486,7 +485,7 @@ const ItineraryPage = () => {
                     ))}
                   </div>
                 </div>
-                
+
                 <div className="bg-gray-50 p-4 flex justify-between">
                   <button className="text-[#0A1B3D] hover:text-[#7FD3F7] transition-colors">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -501,7 +500,7 @@ const ItineraryPage = () => {
                 </div>
               </div>
             ))}
-            
+
             <div className="bg-[#7FD3F7]/10 rounded-xl p-6 border border-[#7FD3F7]/30">
               <div className="flex items-start">
                 <div className="flex-shrink-0 bg-[#7FD3F7] p-3 rounded-full mr-4">
@@ -514,7 +513,7 @@ const ItineraryPage = () => {
                     Expert Tip
                   </h3>
                   <p className="text-gray-600 mt-1">
-                    This itinerary is fully customizable! You can adjust activities, add personal preferences, or request alternative options. Use the edit buttons to make changes to each day's plan.
+                    This itinerary is fully customizable! You can adjust activities, add personal preferences, or request alternative options. Use the edit buttons to make changes to each day&apos;s plan.
                   </p>
                 </div>
               </div>

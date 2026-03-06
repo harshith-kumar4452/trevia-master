@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 
 const AboutPage = () => {
   const team = [
@@ -100,7 +101,7 @@ const AboutPage = () => {
               About Trevia
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              We're reimagining how you explore India by combining local
+              We&apos;re reimagining how you explore India by combining local
               expertise with cutting-edge technology to create unforgettable
               travel experiences.
             </p>
@@ -117,7 +118,7 @@ const AboutPage = () => {
                 Our Mission
               </h2>
               <p className="text-gray-600 mb-6">
-                At Trevia, we're on a mission to make exploring India more
+                At Trevia, we&apos;re on a mission to make exploring India more
                 accessible, personalized, and enriching. We believe that every
                 traveler deserves a unique experience that reflects their
                 interests while connecting them with the authentic heart of
@@ -125,15 +126,16 @@ const AboutPage = () => {
               </p>
               <p className="text-gray-600">
                 By combining AI-powered planning tools with local expertise,
-                we're creating a new way to discover the incredible diversity
+                we&apos;re creating a new way to discover the incredible diversity
                 and rich cultural heritage of India.
               </p>
             </div>
             <div className="relative h-[400px]">
-              <img
+              <Image
                 src="/images/cities/kerala.jpg"
                 alt="Trevia Mission"
-                className="object-cover rounded-lg absolute inset-0 w-full h-full"
+                fill
+                className="object-cover rounded-lg"
               />
             </div>
           </div>
@@ -175,10 +177,11 @@ const AboutPage = () => {
               >
                 <div className="flex flex-col items-center text-center">
                   <div className="relative w-32 h-32 mb-6">
-                    <img
+                    <Image
                       src={member.image}
                       alt={member.name}
-                      className="object-cover rounded-full absolute inset-0 w-full h-full" 
+                      fill
+                      className="object-cover rounded-full"
                     />
                   </div>
                   <h3 className="text-xl font-semibold text-[#0A1B3D] mb-2">

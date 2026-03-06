@@ -69,10 +69,10 @@ const DestinationsPage = () => {
       <div className="bg-[#0A1B3D] py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold text-white text-center mb-6">
-            Explore India's Finest Destinations
+            Explore India&apos;s Finest Destinations
           </h1>
           <p className="text-xl text-gray-300 text-center max-w-3xl mx-auto">
-            Discover the diverse landscapes, rich culture, and unforgettable experiences across India's
+            Discover the diverse landscapes, rich culture, and unforgettable experiences across India&apos;s
             most beautiful destinations.
           </p>
         </div>

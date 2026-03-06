@@ -220,7 +220,7 @@ const DestinationPage = () => {
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-4xl font-bold text-[#0A1B3D] mb-4">Destination Not Found</h1>
-          <p className="text-gray-600 mb-8">The destination you're looking for doesn't exist.</p>
+          <p className="text-gray-600 mb-8">The destination you&apos;re looking for doesn&apos;t exist.</p>
           <Link
             href="/destinations"
             className="inline-block bg-[#7FD3F7] text-[#0A1B3D] px-6 py-3 rounded-lg font-medium hover:bg-[#0A1B3D] hover:text-white transition-colors duration-300"
@@ -303,7 +303,7 @@ const DestinationPage = () => {
               <h2 className="text-xl font-bold text-[#0A1B3D] mb-4">How to Reach</h2>
               <p className="text-gray-600">{destination.howToReach}</p>
             </div>
-            
+
             <div className="bg-[#0A1B3D] rounded-xl p-8 text-white">
               <h2 className="text-xl font-bold mb-4">Explore More</h2>
               <p className="text-gray-300 mb-6">

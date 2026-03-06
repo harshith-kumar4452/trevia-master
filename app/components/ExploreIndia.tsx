@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 
 const ExploreIndia = () => {
   const destinations = [
@@ -62,17 +63,18 @@ const ExploreIndia = () => {
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
-              <div className="aspect-w-4 aspect-h-3">
-                <img
+              <div className="relative aspect-[4/3]">
+                <Image
                   src={destination.image}
                   alt={destination.city}
-                  className="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-500"
+                  fill
+                  unoptimized
+                  className="object-cover transform group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
               <div
-                className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent transition-opacity duration-300 ${
-                  hoveredIndex === index ? 'opacity-100' : 'opacity-70'
-                }`}
+                className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent transition-opacity duration-300 ${hoveredIndex === index ? 'opacity-100' : 'opacity-70'
+                  }`}
               />
               <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
                 <h3 className="text-2xl font-bold mb-1">
@@ -80,9 +82,8 @@ const ExploreIndia = () => {
                   <span className="text-sm font-normal ml-2 opacity-80">{destination.state}</span>
                 </h3>
                 <p
-                  className={`text-sm transition-all duration-300 ${
-                    hoveredIndex === index ? 'opacity-100 max-h-20' : 'opacity-0 max-h-0'
-                  }`}
+                  className={`text-sm transition-all duration-300 ${hoveredIndex === index ? 'opacity-100 max-h-20' : 'opacity-0 max-h-0'
+                    }`}
                 >
                   {destination.tip}
                 </p>
