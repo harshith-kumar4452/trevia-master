@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -84,35 +84,35 @@ const localExperiences: LocalExperience[] = [
 const LocalDiscoveryPage = () => {
   const searchParams = useSearchParams();
   const mood = searchParams.get('mood');
-  
+
   const [filters, setFilters] = useState({
     type: 'all',
     season: 'all',
     searchTerm: '',
   });
-  
+
   // Filter experiences based on mood and other filters
   const filteredExperiences = localExperiences.filter(exp => {
     // Apply type filter
     if (filters.type !== 'all' && exp.type !== filters.type) {
       return false;
     }
-    
+
     // Apply season filter
     if (filters.season !== 'all' && !exp.season.toLowerCase().includes(filters.season.toLowerCase())) {
       return false;
     }
-    
+
     // Apply search filter
-    if (filters.searchTerm && !exp.title.toLowerCase().includes(filters.searchTerm.toLowerCase()) && 
-        !exp.location.toLowerCase().includes(filters.searchTerm.toLowerCase()) &&
-        !exp.description.toLowerCase().includes(filters.searchTerm.toLowerCase())) {
+    if (filters.searchTerm && !exp.title.toLowerCase().includes(filters.searchTerm.toLowerCase()) &&
+      !exp.location.toLowerCase().includes(filters.searchTerm.toLowerCase()) &&
+      !exp.description.toLowerCase().includes(filters.searchTerm.toLowerCase())) {
       return false;
     }
-    
+
     return true;
   });
-  
+
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="bg-[#0A1B3D] py-16">
@@ -135,7 +135,7 @@ const LocalDiscoveryPage = () => {
           </div>
         </div>
       </div>
-    
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Search and filter controls */}
         <div className="bg-white rounded-xl shadow-md p-6 mb-8">
@@ -150,10 +150,10 @@ const LocalDiscoveryPage = () => {
                 placeholder="Search by name, location or description"
                 className="w-full p-2 border border-gray-300 rounded-lg"
                 value={filters.searchTerm}
-                onChange={(e) => setFilters({...filters, searchTerm: e.target.value})}
+                onChange={(e) => setFilters({ ...filters, searchTerm: e.target.value })}
               />
             </div>
-            
+
             <div>
               <label htmlFor="type" className="block text-sm font-medium text-gray-700 mb-1">
                 Experience type
@@ -162,7 +162,7 @@ const LocalDiscoveryPage = () => {
                 id="type"
                 className="w-full p-2 border border-gray-300 rounded-lg"
                 value={filters.type}
-                onChange={(e) => setFilters({...filters, type: e.target.value})}
+                onChange={(e) => setFilters({ ...filters, type: e.target.value })}
               >
                 <option value="all">All Types</option>
                 <option value="Festival">Festivals</option>
@@ -172,7 +172,7 @@ const LocalDiscoveryPage = () => {
                 <option value="Adventure">Adventure</option>
               </select>
             </div>
-            
+
             <div>
               <label htmlFor="season" className="block text-sm font-medium text-gray-700 mb-1">
                 Season
@@ -181,7 +181,7 @@ const LocalDiscoveryPage = () => {
                 id="season"
                 className="w-full p-2 border border-gray-300 rounded-lg"
                 value={filters.season}
-                onChange={(e) => setFilters({...filters, season: e.target.value})}
+                onChange={(e) => setFilters({ ...filters, season: e.target.value })}
               >
                 <option value="all">All Seasons</option>
                 <option value="Year-round">Year-round</option>
@@ -193,7 +193,7 @@ const LocalDiscoveryPage = () => {
             </div>
           </div>
         </div>
-        
+
         {/* Experiences list */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredExperiences.length > 0 ? (
@@ -263,4 +263,10 @@ const LocalDiscoveryPage = () => {
   );
 };
 
-export default LocalDiscoveryPage; 
+const LocalDiscoveryPageWrapper = () => (
+  <Suspense fallback={<div className="min-h-screen bg-gray-50 flex items-center justify-center"><p className="text-gray-500">Loading...</p></div>}>
+    <LocalDiscoveryPage />
+  </Suspense>
+);
+
+export default LocalDiscoveryPageWrapper; 

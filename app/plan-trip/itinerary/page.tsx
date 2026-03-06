@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 
@@ -523,5 +523,10 @@ const ItineraryPage = () => {
     </div>
   );
 };
+const ItineraryPageWrapper = () => (
+  <Suspense fallback={<div className="min-h-screen bg-gray-50 flex items-center justify-center"><p className="text-gray-500">Loading...</p></div>}>
+    <ItineraryPage />
+  </Suspense>
+);
 
-export default ItineraryPage; 
+export default ItineraryPageWrapper; 
