@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
+
 
 interface ContactFormData {
   name: string;
@@ -24,7 +24,7 @@ const ContactPage = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate form submission
     setTimeout(() => {
       setIsSubmitting(false);
@@ -35,7 +35,7 @@ const ContactPage = () => {
         subject: '',
         message: '',
       });
-      
+
       // Reset success message after 5 seconds
       setTimeout(() => {
         setSubmitSuccess(false);
@@ -65,7 +65,7 @@ const ContactPage = () => {
             <h2 className="text-2xl font-bold text-[#0A1B3D] mb-6">Send Us a Message</h2>
             {submitSuccess ? (
               <div className="bg-green-50 text-green-700 p-4 rounded-lg mb-6">
-                Thank you for your message! We'll get back to you as soon as possible.
+                Thank you for your message! We&apos;ll get back to you as soon as possible.
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">

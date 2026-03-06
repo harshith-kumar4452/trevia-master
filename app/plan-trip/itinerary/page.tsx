@@ -1,9 +1,9 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useState } from 'react';
+import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
-import Image from 'next/image';
+
 
 // Sample itinerary data structure
 interface DayActivity {
@@ -23,7 +23,6 @@ interface ItineraryDay {
 }
 
 const ItineraryPage = () => {
-  const router = useRouter();
   const searchParams = useSearchParams();
   const mood = searchParams.get('mood');
 

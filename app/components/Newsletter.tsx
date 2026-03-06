@@ -46,7 +46,7 @@ const Newsletter = () => {
 
           {status === 'success' && (
             <p className="mt-4 text-sm text-blue-100">
-              Thank you for subscribing! We'll be in touch soon.
+              Thank you for subscribing! We&apos;ll be in touch soon.
             </p>
           )}
 

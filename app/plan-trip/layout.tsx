@@ -17,7 +17,7 @@ export default function PlanTripLayout({
   return (
     <>
       <Navbar />
-      <main>{children}</main>
+      <main className={inter.className}>{children}</main>
       {/* Footer intentionally removed for immersive experience */}
     </>
   );
