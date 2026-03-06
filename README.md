@@ -11,7 +11,7 @@
 
 ## 🚀 Live Demo
 
-🌐 **[https://trevia-master-4ogijdp4d-harshiths-projects-b78c4002.vercel.app](https://trevia-master-4ogijdp4d-harshiths-projects-b78c4002.vercel.app)**
+🌐 **[https://trevia-india.vercel.app](https://trevia-india.vercel.app)**
 
 ---
 
